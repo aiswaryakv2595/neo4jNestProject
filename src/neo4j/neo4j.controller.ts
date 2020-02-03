@@ -17,17 +17,22 @@ export class Neo4jController {
  }
 
  @Post()
-    addProduct(@Body('name') name:string,@Body('email') email:string,@Body('password') password:string,@Body('place') place:string){
-       return this.retriveNodes.insertProduct(name,email,password,place);
+    addSchool(@Body('name') name:string,@Body('email') email:string,@Body('password') password:string,@Body('place') place:string){
+       return this.retriveNodes.insertSchool(name,email,password,place);
     }
 
     @Patch(':id')
-    updateProduct(@Param('id') id:string,@Body('name') name:string,@Body('email') email:string,@Body('password') password:string,@Body('place') place:string){
-       return this.retriveNodes.updateProduct(id,name,email,password,place);
+    updateSchool(@Param('id') id:string,@Body('name') name:string,@Body('email') email:string,@Body('password') password:string,@Body('place') place:string){
+       return this.retriveNodes.updateSchool(id,name,email,password,place);
        
     }
     @Delete(':id')
-    removeProduct(@Param('id') id:string){
-   return this.retriveNodes.deleteProduct(id);
+    removeSchool(@Param('id') id:string){
+   return this.retriveNodes.deleteSchool(id);
+    }
+
+    @Post('relation')
+    addRelation(@Body('name') name:string,@Body('names') sname:string,@Body('relation') relation:string){
+       return this.retriveNodes.insertRelation(name,sname,relation);
     }
 }
